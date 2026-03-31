@@ -235,6 +235,11 @@
         animation: fadeup 0.8s 0.4s forwards;
       }
 
+      .h-captcha {
+        width: 100% !important;
+        margin-top: 14px;
+      }
+
       .hero-title {
         margin-bottom: 12px;
         opacity: 0;
@@ -263,6 +268,7 @@
 
       .hero-form {
         display: flex;
+        flex-direction: column;
         gap: 0;
         max-width: 420px;
         width: 100%;
@@ -991,6 +997,7 @@
         gap: 0;
         max-width: 440px;
         margin: 0 auto 16px;
+        flex-direction: column;
       }
 
       .cta-form input {
@@ -1264,6 +1271,7 @@
           gap: 8px;
         }
         .hero-form input {
+          width: 100%;
           border-right: 1px solid var(--border);
           border-radius: 2px;
           border-bottom: none;
@@ -1349,6 +1357,7 @@
         .cta-form button {
           border-radius: 2px;
           padding: 16px;
+          width: 100%;
         }
 
         /* Footer */
@@ -1455,8 +1464,8 @@
         <span class="sonex-wordmark">SONEX</span>
       </div>
       <ul class="nav-links">
-        <li><a href="#features">Tap Tags</a></li>
         <li><a href="#features">Sonnex</a></li>
+        <li><a href="#tap-tags">Tap Tags</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
       </ul>
@@ -1509,19 +1518,31 @@
             action="https://api.web3forms.com/submit"
             method="POST"
           >
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+            <input
+              type="hidden"
+              name="access_key"
+              value="e8f32c40-7a9b-4e81-bb81-57c2a5ac1c0f"
+            />
             <input
               type="hidden"
               name="subject"
               value="New Sonex Waitlist Signup"
             />
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-            />
-            <button type="submit">Join Waitlist</button>
+            <div class="btn-container">
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+              <button type="submit">Join Waitlist</button>
+            </div>
+            <div class="h-captcha" data-captcha="true"></div>
+            <script
+              src="https://web3forms.com/client/script.js"
+              async
+              defer
+            ></script>
           </form>
           <div class="form-success" id="hero-success">
             You&#8217;re on the list — we&#8217;ll be in touch when we launch!
@@ -1806,7 +1827,7 @@
                     <div class="sleeve-back-tracks">
                       <div class="track-row">
                         <span class="track-num">A1</span
-                        ><span class="track-name">iOS Architecture</span>
+                        ><span class="track-name">App Architecture</span>
                       </div>
                       <div class="track-row">
                         <span class="track-num">A2</span
@@ -1818,15 +1839,15 @@
                       </div>
                       <div class="track-row">
                         <span class="track-num">B1</span
-                        ><span class="track-name">Star Pages · Founder</span>
+                        ><span class="track-name">Web Design</span>
                       </div>
                       <div class="track-row">
                         <span class="track-num">B2</span
-                        ><span class="track-name">Bloomberg LP · SWE</span>
+                        ><span class="track-name">USC MSIDBT</span>
                       </div>
                       <div class="track-row">
                         <span class="track-num">B3</span
-                        ><span class="track-name">USC MSIDBT</span>
+                        ><span class="track-name">Bloomberg LP · SWE</span>
                       </div>
                     </div>
                   </div>
@@ -1865,7 +1886,7 @@
                     />
                     <div class="sleeve-front-name">
                       <strong>Calvin Shaul</strong>
-                      <span>Product Lead · Design</span>
+                      <span>Product Lead · Design • Programming</span>
                     </div>
                   </div>
                   <div class="sleeve-back">
@@ -1888,15 +1909,15 @@
                       </div>
                       <div class="track-row">
                         <span class="track-num">A2</span
-                        ><span class="track-name">UI / UX Design</span>
+                        ><span class="track-name">3D Design</span>
                       </div>
                       <div class="track-row">
                         <span class="track-num">A3</span
-                        ><span class="track-name">Brand Identity</span>
+                        ><span class="track-name">Design Systems</span>
                       </div>
                       <div class="track-row">
                         <span class="track-num">B1</span
-                        ><span class="track-name">Design Systems</span>
+                        ><span class="track-name">iOS Development</span>
                       </div>
                       <div class="track-row">
                         <span class="track-num">B2</span
@@ -2011,19 +2032,32 @@
           action="https://api.web3forms.com/submit"
           method="POST"
         >
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+          <input
+            type="hidden"
+            name="access_key"
+            value="e8f32c40-7a9b-4e81-bb81-57c2a5ac1c0f"
+          />
           <input
             type="hidden"
             name="subject"
             value="New Sonex Waitlist Signup"
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="your@email.com"
-            required
-          />
-          <button type="submit">Notify Me</button>
+          <div class="btn-container">
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+            <button type="submit">Notify Me</button>
+          </div>
+          <div class="h-captcha" data-captcha="true"></div>
+
+          <script
+            src="https://web3forms.com/client/script.js"
+            async
+            defer
+          ></script>
         </form>
         <div class="form-success" id="cta-success">
           You&#8217;re on the list! We&#8217;ll reach out when we launch.
