@@ -133,11 +133,14 @@
       }
 
       .hero-inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        min-height: 100vh;
         position: relative;
         z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding-left: 64px;
+        padding-top: 80px;
       }
 
       /* LEFT: mockup column */
@@ -176,25 +179,17 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 140px 64px 80px 64px;
+        max-width: 50%;
         text-align: left;
       }
 
       .hero-bg {
         position: absolute;
         inset: 0;
-        background:
-          radial-gradient(
-            ellipse 80% 60% at 70% 50%,
-            rgba(200, 32, 26, 0.07) 0%,
-            transparent 70%
-          ),
-          radial-gradient(
-            ellipse 40% 60% at 90% 80%,
-            rgba(196, 133, 42, 0.05) 0%,
-            transparent 60%
-          ),
-          var(--black);
+        background-image: url("./assets/header.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         z-index: 0;
       }
 
@@ -233,6 +228,8 @@
         margin-bottom: 20px;
         opacity: 0;
         animation: fadeup 0.8s 0.4s forwards;
+        font-weight: 500;
+        font: bold;
       }
 
       .h-captcha {
@@ -257,12 +254,13 @@
       }
 
       .hero-sub {
-        font-size: 13px;
-        color: var(--muted);
+        font-size: 14px;
+        color: var(--cream);
         max-width: 440px;
         line-height: 1.8;
         margin: 0 0 40px;
         opacity: 0;
+        font-weight: 400;
         animation: fadeup 0.8s 1s forwards;
       }
 
@@ -458,7 +456,7 @@
         transform: translateY(-4px);
       }
 
-      /* ---- TAP TAGS SECTION ---- */
+      /* ---- Spin Tags SECTION ---- */
       #tap-tags {
         background: var(--black);
         overflow: hidden;
@@ -602,6 +600,24 @@
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
+      }
+
+      .team-image {
+        display: block;
+        margin: 60px auto;
+        max-width: 90%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        border: 1px solid var(--border);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .team-image:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
       }
 
       /* ---- ALBUM COVER TEAM SECTION ---- */
@@ -1109,8 +1125,12 @@
 
       /* Tablet landscape — collapse some grids */
       @media (max-width: 1024px) {
+        .hero-inner {
+          padding-left: 48px;
+          padding-top: 80px;
+        }
         .hero-content-col {
-          padding: 120px 48px 60px 48px;
+          max-width: 60%;
         }
         .features-grid {
           gap: 72px;
@@ -1139,30 +1159,24 @@
           display: none;
         }
 
-        /* Hero: stack image above content */
+        /* Hero: adjust for background image */
         .hero {
-          min-height: auto;
+          min-height: 100vh;
         }
         .hero-inner {
-          grid-template-columns: 1fr;
-          min-height: auto;
+          padding-left: 32px;
+          padding-right: 32px;
+          padding-top: 70px;
         }
-        .hero-visual-col {
-          min-height: 55vw;
-          max-height: 480px;
-          border-right: none;
-          border-bottom: none;
+        .hero-content-col {
+          max-width: 100%;
+          text-align: center;
         }
-        .hero-visual-col img {
-          object-position: center 20%;
+        .hero-bg {
+          background-position: center top;
         }
         .hero-rings {
           display: none;
-        }
-        .hero-content-col {
-          padding: 52px 32px 56px;
-          text-align: left;
-          align-items: flex-start;
         }
         .hero-sub {
           max-width: 100%;
@@ -1199,7 +1213,7 @@
           max-width: 380px;
         }
 
-        /* Tap Tags */
+        /* Spin Tags */
         .taptag-ring,
         .taptag-ring:nth-child(2),
         .taptag-ring:nth-child(3) {
@@ -1253,12 +1267,17 @@
         }
 
         /* Hero */
-        .hero-visual-col {
-          min-height: 52vw;
-          max-height: 320px;
+        .hero-inner {
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 60px;
         }
         .hero-content-col {
-          padding: 40px 20px 52px;
+          max-width: 100%;
+        }
+        .hero-bg {
+          background-position: center center;
+          background-attachment: scroll;
         }
         .sonex-wordmark-large {
           font-size: clamp(44px, 14vw, 64px);
@@ -1313,7 +1332,7 @@
           max-width: 100%;
         }
 
-        /* Tap Tags */
+        /* Spin Tags */
         .taptag-visual img {
           width: 45%;
           max-width: 180px;
@@ -1465,7 +1484,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#features">Sonnex</a></li>
-        <li><a href="#tap-tags">Tap Tags</a></li>
+        <li><a href="#tap-tags">Spin Tags</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
       </ul>
@@ -1491,24 +1510,16 @@
       </svg>
 
       <div class="hero-inner">
-        <!-- LEFT: Mockup image fills full height -->
-        <div class="hero-visual-col">
-          <img
-            src="./assets/Mockups/ExploreMapMockup.png"
-            alt="Sonex Explore Map"
-          />
-        </div>
-
-        <!-- RIGHT: Content -->
+        <!-- Content floated on left -->
         <div class="hero-content-col">
           <p class="hero-eyebrow">Find out when Sonex launches on iOS</p>
           <div class="hero-title">
             <span class="sonex-wordmark-large">SONEX</span>
           </div>
-          <p class="hero-tagline">Your music codex.</p>
+          <p class="hero-tagline">Your collection, connected.</p>
           <p class="hero-sub">
-            The NFC-powered vinyl cataloging and peer exchange platform built
-            for collectors, by collectors. Dig deeper. Share more. Own your
+            The NFC-paired vinyl cataloging and peer exchange platform built for
+            collectors, by collectors. Dig deeper. Share more. Own your
             collection.
           </p>
 
@@ -1562,7 +1573,7 @@
     <!-- MARQUEE -->
     <div class="marquee-wrap">
       <div class="marquee-track">
-        <span class="marquee-item">NFC TAP TAGS</span
+        <span class="marquee-item">SONEX SPIN TAGS</span
         ><span class="marquee-dot"> · </span>
         <span class="marquee-item">VINYL CATALOGING</span
         ><span class="marquee-dot"> · </span>
@@ -1576,7 +1587,7 @@
         ><span class="marquee-dot"> · </span>
         <span class="marquee-item">APP CLIP</span
         ><span class="marquee-dot"> · </span>
-        <span class="marquee-item">NFC TAP TAGS</span
+        <span class="marquee-item">SONEX SPIN TAGS</span
         ><span class="marquee-dot"> · </span>
         <span class="marquee-item">VINYL CATALOGING</span
         ><span class="marquee-dot"> · </span>
@@ -1605,7 +1616,7 @@
       </div>
 
       <div class="features-grid">
-        <!-- Feature 1: App Clip / Tap Tags -->
+        <!-- Feature 1: App Clip / Spin Tags -->
         <div class="feature-row reveal">
           <div class="feature-text">
             <div class="feature-number">01</div>
@@ -1708,7 +1719,7 @@
 
     <div class="divider"></div>
 
-    <!-- TAP TAGS SECTION -->
+    <!-- Spin Tags SECTION -->
     <section class="section" id="tap-tags">
       <div class="taptags-inner">
         <div class="taptag-visual reveal">
@@ -1718,7 +1729,7 @@
           <img src="./assets/Crate.png" alt="Tap Tag" />
         </div>
         <div class="reveal">
-          <p class="section-label">Tap Tags by Sonex</p>
+          <p class="section-label">Spin Tags by Sonex</p>
           <h2 class="section-title">The tag that lives with your record</h2>
           <p class="section-body">
             Tagging your collection shouldn't feel like work.
@@ -1727,9 +1738,7 @@
             <div class="taptag-bullet">
               <div class="bullet-dot"></div>
               <p class="bullet-text">
-                2-in-1 NFC sticker roll holder — one end attaches to your
-                record, the other stays in your pocket. Tagging is as fast as
-                peeling and tapping.
+                Tagging is as fast as peeling and tapping.
               </p>
             </div>
             <div class="taptag-bullet">
@@ -1774,6 +1783,12 @@
             with creative digital artifacts.
           </p>
         </div>
+
+        <img
+          src="./assets/team-image.jpeg"
+          alt="Team Image"
+          class="team-image reveal"
+        />
 
         <!-- INTERACTIVE ALBUM COVERS -->
         <div class="vinyl-stage reveal">
